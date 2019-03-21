@@ -1,6 +1,6 @@
 {
-  "name": "@cat/toolbox",
-  "version": "0.0.0",
+  "name": "universal-toolbox",
+  "version": "0.0.2",
   "main": "lib/index.js",
   "license": "MIT",
   "scripts": {
