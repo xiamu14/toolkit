@@ -1,54 +1,60 @@
-## 数据匹配器
+## 常用 JS 工具集
 
 ## 安装
 
 ```
-yarn add data-matcher
-npm install data-matcher
+yarn add univerdal-toolbox
 ```
 
-### 使用
+## 工具介绍
 
-链式调用，将后端接口数据转换为前端的定义数据结构
+### Redux 相关组合工具
+
+#### createAction()
 
 ```js
-import matcher from 'data-matcher'
+import { createAction } from 'universal-toolbox'
 
-const data = {
-  a: 1,
-  b: '1',
+const reducers = {
+  update: (state, action) => action.payload, // key is constant
 }
 
-const res = matcher
-  .input(data)
-  .transformKey({ a: 'c' })
-  .transformValueType({ b: number })
-  .output() // {c: 1, b: 1}
+export const actions = createAction(Object.keys(reducers))
+
+// 在 component 中使用 action
+
+import { connect } from 'react-redux'
+
+@connect(
+  ({ userInfo }) => ({ userInfo }),
+  dispatch => ({
+    onAccept: payload => dispatch(actions.update(payload))
+  })
+)
+
 ```
 
-### Api
+#### createReducer()
 
-- input()
+```js
+import { createReducer } from 'universal-toolbox'
 
-  导入数据
+// just care reducers
+const reducers = {
+  accept: (state, action) => action.payload, // key is constant
+}
 
-- output()
+// reducer config
+const userInfo = {
+  name: 'userInfo', // store name
+  initState: {},
+  reducers,
+}
 
-  导出数据
+export default userInfo
 
-- toValuesArray()
+// store/index.js
+import userInfo from './user_info'
 
-  将对象展开成 value 的数组，如：
-  {1: 'a', 2: 'b' } => ['a', 'b']
-
-- transformKey()
-
-- transformValueType()
-
-- transformEmpty()
-
-- addKey()
-
-- addKeyVal()
-
-- classifyKey()
+const reducers = combineReducers(createReducer([userInfo]))
+```
