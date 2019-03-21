@@ -1,0 +1,21 @@
+{
+  "name": "@cat/toolbox",
+  "version": "0.0.0",
+  "main": "lib/index.js",
+  "license": "MIT",
+  "scripts": {
+    "dev": "rollup -c -w",
+    "build": "rollup -c",
+    "jest": "jest __test__/*.spec.ts --coverage"
+  },
+  "devDependencies": {
+    "@types/jest": "^24.0.11",
+    "jest": "^24.5.0",
+    "rollup": "^1.6.0",
+    "rollup-plugin-filesize": "^6.0.1",
+    "rollup-plugin-typescript2": "^0.20.1",
+    "ts-jest": "^24.0.0",
+    "typescript": "^3.3.3333"
+  },
+  "dependencies": {}
+}
