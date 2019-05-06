@@ -9,12 +9,12 @@ export default [
     output: [
       {
         name: pkg.name,
-        file: `lib/${pkg.main}.umd.js`,
+        file: 'lib/index.umd.js',
         format: 'umd',
       },
       {
         name: pkg.name,
-        file: `lib/${pkg.main}.js`,
+        file: 'lib/index.js',
         format: 'es',
       },
     ],

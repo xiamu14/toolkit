@@ -1,4 +1,4 @@
-interface Iparams {
+export interface Iparams {
   method: string;
   url: string;
   headers?: {
@@ -7,4 +7,6 @@ interface Iparams {
   };
   data: object;
 }
-declare function axiosParamsConvert(params: Iparams): any;
+export declare function axiosParamsConvert(params: Iparams): any;
+
+export declare function moveElement(arr: any[], n: number): any[];
