@@ -1,7 +1,7 @@
 /**
- *
  * @param {array} arr  需要移动的数组
  * @param {number} n 需要移动的位数，正数右移，负数左移
+ * @return {array} 移动后的数组
  */
 export default function moveElement(arr: any[], n: number): any[] {
   if (Math.abs(n) > arr.length) n = n % arr.length;
