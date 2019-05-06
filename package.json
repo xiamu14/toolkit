@@ -1,7 +1,7 @@
 {
   "name": "universal-toolbox",
   "version": "0.0.3",
-  "main": "lib/index.js",
+  "main": "index",
   "license": "MIT",
   "scripts": {
     "dev": "rollup -c -w",
