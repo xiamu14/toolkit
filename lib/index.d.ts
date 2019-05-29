@@ -29,3 +29,16 @@ export declare function axiosParamsConvert(params: APC.Iparams): any;
  * @return {array} 移动后的数组
  */
 export declare function moveElement(arr: any[], n: number): any[];
+
+/**
+ * 多值枚举类
+ */
+type EnumType = {
+  [key: string]: any;
+}[];
+
+export declare class MultipleEnum {
+  constructor(data: EnumType); // 构建函数
+  getValArr(key: string): any[];
+  getItemByObj(obj: { key: string; val: any }): any;
+}

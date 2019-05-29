@@ -8,53 +8,38 @@ yarn add univerdal-toolbox
 
 ## 工具介绍
 
-### Redux 相关组合工具
+### MultipleEnum - 多值枚举类
 
-#### createAction()
+有一类枚举在多个场景下展示不同的值，比如：后端定义一类服务，包含多种类型。不同类型对应不同的值，是枚举类型。但在前端可能还需要添加类型的名称，描述等。
+一个对象才能构成枚举的一个值，这个类就是用于处理这种场景下多值枚举的取值。
+代码实例如下：
 
-```js
-import { createAction } from 'universal-toolbox'
+```typescript
+import MultipleEnum from 'universal-toolbox';
 
-const reducers = {
-  update: (state, action) => action.payload, // key is constant
-}
+const fruits = [
+  {
+    iid: 0, // 数组 index 显式表达为 iid
+    desc: '苹果', // 前端展示的描述值
+    endValue: 1, // 后端值
+  },
+  {
+    iid: 1,
+    desc: '橘子',
+    endValue: 2,
+  },
+  {
+    iid: 2,
+    desc: '桃花',
+    endValue: 3,
+  },
+];
+const fruitsEnum = new MultipleEnum(fruits);
 
-export const actions = createAction(Object.keys(reducers))
+// 获取所有的 desc ，返回数组
+fruitsEnum.getValArr('desc'); // ['苹果', '橘子', '桃花']
 
-// 在 component 中使用 action
-
-import { connect } from 'react-redux'
-
-@connect(
-  ({ userInfo }) => ({ userInfo }),
-  dispatch => ({
-    onAccept: payload => dispatch(actions.update(payload))
-  })
-)
-
-```
-
-#### createReducer()
-
-```js
-import { createReducer } from 'universal-toolbox'
-
-// just care reducers
-const reducers = {
-  accept: (state, action) => action.payload, // key is constant
-}
-
-// reducer config
-const userInfo = {
-  name: 'userInfo', // store name
-  initState: {},
-  reducers,
-}
-
-export default userInfo
-
-// store/index.js
-import userInfo from './user_info'
-
-const reducers = combineReducers(createReducer([userInfo]))
+// 根据特定的 kev-val 获取子项
+fruitsEnum.getItemByObj({key: 'iid', val: 1}); // {iid:1, desc: '橘子',
+    endValue: 2,}
 ```
