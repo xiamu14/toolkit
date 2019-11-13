@@ -2,7 +2,7 @@
  * @desc 多值选择类
  */
 
-export default class Select<T> {
+export default class Select<T extends Object> {
   data: T[];
 
   /**
@@ -17,7 +17,7 @@ export default class Select<T> {
    * 获取数组中此键名的值组成的数组
    * @param key
    */
-  vals(key: string) {
+  vals(key: keyof T) {
     const result = this.data.map(item => item[key]);
     return result;
   }
@@ -28,7 +28,7 @@ export default class Select<T> {
    * @param val
    */
 
-  item(key: string, val: any): T | null {
+  item(key: keyof T, val: T[typeof key]): T | null {
     let result: T | null = null;
     this.data.forEach((item: T) => {
       if (item[key] === val) {

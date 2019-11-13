@@ -33,7 +33,6 @@ export default class MultipleEnum {
     this.data.forEach(item => {
       if (item[obj.key] === obj.val) {
         result = item;
-        return true;
       }
     });
     return result;

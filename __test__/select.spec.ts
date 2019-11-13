@@ -15,5 +15,5 @@ const statusEnum = new Select(status);
 
 test('test statusEnum', () => {
   expect(statusEnum.vals('id')).toEqual([0, 1]);
-  expect(statusEnum.item('id', 0)).toEqual({ id: 0, value: '开启' });
+  expect(statusEnum.item('value', 1)).toEqual({ id: 0, value: '开启' });
 });

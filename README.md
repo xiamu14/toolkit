@@ -3,19 +3,21 @@
 ## 安装
 
 ```
-yarn add univerdal-toolbox
+yarn add @redchili/toolkit
 ```
 
 ## 工具介绍
 
-### MultipleEnum - 多值枚举类
+### MultipleEnum - 多值枚举类(弃用)
+
+### Select - 多值选择类
 
 有一类枚举在多个场景下展示不同的值，比如：后端定义一类服务，包含多种类型。不同类型对应不同的值，是枚举类型。但在前端可能还需要添加类型的名称，描述等。
 一个对象才能构成枚举的一个值，这个类就是用于处理这种场景下多值枚举的取值。
 代码实例如下：
 
 ```typescript
-import MultipleEnum from 'universal-toolbox';
+import {Select} from '@redchili/toolkit';
 
 const fruits = [
   {
@@ -34,12 +36,12 @@ const fruits = [
     endValue: 3,
   },
 ];
-const fruitsEnum = new MultipleEnum(fruits);
+const fruits = new Select(fruits);
 
 // 获取所有的 desc ，返回数组
-fruitsEnum.getValArr('desc'); // ['苹果', '橘子', '桃花']
+fruits.vals('desc'); // ['苹果', '橘子', '桃花']
 
 // 根据特定的 kev-val 获取子项
-fruitsEnum.getItemByObj({key: 'iid', val: 1}); // {iid:1, desc: '橘子',
+fruitsEnum.item('iid',1); // {iid:1, desc: '橘子',
     endValue: 2,}
 ```
