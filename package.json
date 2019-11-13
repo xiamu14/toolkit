@@ -1,9 +1,12 @@
 {
-  "name": "universal-toolbox",
-  "version": "0.0.9",
+  "name": "@redchili/toolkit",
+  "version": "1.0.0",
   "main": "dist/index.js",
   "module": "dist/index.es.js",
   "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  },
   "scripts": {
     "dev": "rollup -c -w",
     "build": "rollup -c",
