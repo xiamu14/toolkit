@@ -1,6 +1,6 @@
 {
   "name": "@redchili/toolkit",
-  "version": "1.0.1-beta.0",
+  "version": "1.0.2-beta.0",
   "main": "dist/index.js",
   "module": "dist/index.es.js",
   "license": "MIT",
@@ -26,6 +26,11 @@
     "typescript": "^3.3.3333"
   },
   "dependencies": {
+    "@types/lodash.isequal": "^4.5.5",
+    "lodash.isequal": "^4.5.0"
+  },
+  "peerDependencies": {
+    "@types/lodash.isequal": "^4.5.5",
     "lodash.isequal": "^4.5.0"
   },
   "files": [
