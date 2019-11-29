@@ -1,7 +1,7 @@
 /**
  * @desc 多值选择类
  */
-
+import _isEqual from 'lodash.isequal';
 export default class Select<T extends Object> {
   data: T[];
 
@@ -28,13 +28,11 @@ export default class Select<T extends Object> {
    * @param val
    */
 
-  item(key: keyof T, val: T[typeof key]): T | null {
-    let result: T | null = null;
-    this.data.forEach((item: T) => {
-      if (item[key] === val) {
-        result = item;
-      }
-    });
-    return result;
+  item(key: keyof T, val: T[typeof key]) {
+    const result = this.data.filter((item: T) => _isEqual(item[key], val));
+    if (result.length === 0) {
+      throw new Error(`the val:${val} does not exit.`);
+    }
+    return result[0];
   }
 }

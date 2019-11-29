@@ -1,14 +1,14 @@
 <!doctype html>
 <html lang="en">
 <head>
-    <title>Code coverage report for select.ts</title>
+    <title>Code coverage report for src/multiple_enum.ts</title>
     <meta charset="utf-8" />
-    <link rel="stylesheet" href="prettify.css" />
-    <link rel="stylesheet" href="base.css" />
+    <link rel="stylesheet" href="../prettify.css" />
+    <link rel="stylesheet" href="../base.css" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <style type='text/css'>
         .coverage-summary .sorter {
-            background-image: url(sort-arrow-sprite.png);
+            background-image: url(../sort-arrow-sprite.png);
         }
     </style>
 </head>
@@ -16,18 +16,18 @@
 <div class='wrapper'>
   <div class='pad1'>
     <h1>
-      <a href="index.html">All files</a> select.ts
+      <a href="../index.html">All files</a> / <a href="index.html">src</a> multiple_enum.ts
     </h1>
     <div class='clearfix'>
       <div class='fl pad1y space-right2'>
-        <span class="strong">88.89% </span>
+        <span class="strong">100% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>8/9</span>
+        <span class='fraction'>9/9</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">50% </span>
+        <span class="strong">100% </span>
         <span class="quiet">Branches</span>
-        <span class='fraction'>1/2</span>
+        <span class='fraction'>2/2</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">100% </span>
@@ -35,9 +35,9 @@
         <span class='fraction'>5/5</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">85.71% </span>
+        <span class="strong">100% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>6/7</span>
+        <span class='fraction'>8/8</span>
       </div>
     </div>
     <p class="quiet">
@@ -84,7 +84,12 @@
 <a name='L36'></a><a href='#L36'>36</a>
 <a name='L37'></a><a href='#L37'>37</a>
 <a name='L38'></a><a href='#L38'>38</a>
-<a name='L39'></a><a href='#L39'>39</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L39'></a><a href='#L39'>39</a>
+<a name='L40'></a><a href='#L40'>40</a>
+<a name='L41'></a><a href='#L41'>41</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -104,7 +109,7 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -112,28 +117,30 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">4x</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">/**
- * @desc 多值选择类
+ * 多值枚举类
  */
-import _isEqual from 'lodash.isequal';
-export default class Select&lt;T extends Object&gt; {
-  data: T[];
 &nbsp;
+type EnumType = {
+  [key: string]: any;
+}[];
+&nbsp;
+export default class MultipleEnum {
+  data: EnumType;
   /**
    * 定义具有多值的枚举属性类
    * @param data
    */
-  constructor(data: T[]) {
+  constructor(data: EnumType) {
     this.data = data;
   }
 &nbsp;
@@ -141,23 +148,22 @@ export default class Select&lt;T extends Object&gt; {
    * 获取数组中此键名的值组成的数组
    * @param key
    */
-  vals(key: keyof T) {
+  getValArr(key: string) {
     const result = this.data.map(item =&gt; item[key]);
     return result;
   }
-&nbsp;
   /**
    * 根据特定的 key value 获取到数组子项
-   * @param key
-   * @param val
+   * @param obj key - val
    */
-&nbsp;
-  item(key: keyof T, val: T[typeof key]) {
-    const result = this.data.filter((item: T) =&gt; _isEqual(item[key], val));
-    <span class="missing-if-branch" title="if path not taken" >I</span>if (result.length === 0) {
-<span class="cstat-no" title="statement not covered" >      throw new Error(`the val:${val} does not exit.`);</span>
-    }
-    return result[0];
+  getItemByObj(obj: { key: string; val: any }) {
+    let result = {};
+    this.data.forEach(item =&gt; {
+      if (item[obj.key] === obj.val) {
+        result = item;
+      }
+    });
+    return result;
   }
 }
 &nbsp;</pre></td></tr>
@@ -166,10 +172,10 @@ export default class Select&lt;T extends Object&gt; {
 </div><!-- /wrapper -->
 <div class='footer quiet pad2 space-top1 center small'>
   Code coverage
-  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Fri Nov 29 2019 11:33:18 GMT+0800 (China Standard Time)
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Fri Nov 29 2019 11:28:54 GMT+0800 (China Standard Time)
 </div>
 </div>
-<script src="prettify.js"></script>
+<script src="../prettify.js"></script>
 <script>
 window.onload = function () {
         if (typeof prettyPrint === 'function') {
@@ -177,7 +183,7 @@ window.onload = function () {
         }
 };
 </script>
-<script src="sorter.js"></script>
-<script src="block-navigation.js"></script>
+<script src="../sorter.js"></script>
+<script src="../block-navigation.js"></script>
 </body>
 </html>

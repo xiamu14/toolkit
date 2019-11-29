@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
 <head>
-    <title>Code coverage report for select.ts</title>
+    <title>Code coverage report for axios_params_convert.ts</title>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="prettify.css" />
     <link rel="stylesheet" href="base.css" />
@@ -16,35 +16,35 @@
 <div class='wrapper'>
   <div class='pad1'>
     <h1>
-      <a href="index.html">All files</a> select.ts
+      <a href="index.html">All files</a> axios_params_convert.ts
     </h1>
     <div class='clearfix'>
       <div class='fl pad1y space-right2'>
-        <span class="strong">88.89% </span>
+        <span class="strong">0% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>8/9</span>
+        <span class='fraction'>0/7</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">50% </span>
+        <span class="strong">0% </span>
         <span class="quiet">Branches</span>
-        <span class='fraction'>1/2</span>
+        <span class='fraction'>0/7</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">100% </span>
+        <span class="strong">0% </span>
         <span class="quiet">Functions</span>
-        <span class='fraction'>5/5</span>
+        <span class='fraction'>0/2</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">85.71% </span>
+        <span class="strong">0% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>6/7</span>
+        <span class='fraction'>0/7</span>
       </div>
     </div>
     <p class="quiet">
       Press <em>n</em> or <em>j</em> to go to the next uncovered block, <em>b</em>, <em>p</em> or <em>k</em> for the previous block.
     </p>
   </div>
-  <div class='status-line high'></div>
+  <div class='status-line low'></div>
 <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -84,7 +84,9 @@
 <a name='L36'></a><a href='#L36'>36</a>
 <a name='L37'></a><a href='#L37'>37</a>
 <a name='L38'></a><a href='#L38'>38</a>
-<a name='L39'></a><a href='#L39'>39</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L39'></a><a href='#L39'>39</a>
+<a name='L40'></a><a href='#L40'>40</a>
+<a name='L41'></a><a href='#L41'>41</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -96,16 +98,6 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -115,50 +107,64 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">4x</span>
-<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">/**
- * @desc 多值选择类
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">/*
+ * @Description: axios 参数转换函数，抹平 get/post/application 间传参的差异性
+ * @Type: function
+ * @Author: Ben
+ * @LastEditors: Ben
+ * @Date: 2019-05-05 18:04:27
+ * @LastEditTime: 2019-05-05 18:59:23
  */
-import _isEqual from 'lodash.isequal';
-export default class Select&lt;T extends Object&gt; {
-  data: T[];
+export interface Iparams {
+  method: string;
+  url: string;
+  headers?: {
+    [key: string]: any;
+    "content-type"?: string;
+  };
+  data: object;
+}
 &nbsp;
-  /**
-   * 定义具有多值的枚举属性类
-   * @param data
-   */
-  constructor(data: T[]) {
-    this.data = data;
-  }
+interface LooseObject {
+  [key: string]: any;
+}
 &nbsp;
-  /**
-   * 获取数组中此键名的值组成的数组
-   * @param key
-   */
-  vals(key: keyof T) {
-    const result = this.data.map(item =&gt; item[key]);
-    return result;
-  }
+export default function <span class="fstat-no" title="function not covered" >axiosParamsConvert(</span>params: Iparams) {
+  const res: LooseObject = <span class="cstat-no" title="statement not covered" >{};</span>
+  const sign =
+<span class="cstat-no" title="statement not covered" >    params.method === "GET" ||</span>
+    (params.headers &amp;&amp;
+      params.headers["content-type"] === "application/x-www-form-urlencoded");
 &nbsp;
-  /**
-   * 根据特定的 key value 获取到数组子项
-   * @param key
-   * @param val
-   */
-&nbsp;
-  item(key: keyof T, val: T[typeof key]) {
-    const result = this.data.filter((item: T) =&gt; _isEqual(item[key], val));
-    <span class="missing-if-branch" title="if path not taken" >I</span>if (result.length === 0) {
-<span class="cstat-no" title="statement not covered" >      throw new Error(`the val:${val} does not exit.`);</span>
+<span class="cstat-no" title="statement not covered" >  Object.keys(params).forEach(<span class="fstat-no" title="function not covered" >it</span>em =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >    if (sign &amp;&amp; item === "data") {</span>
+<span class="cstat-no" title="statement not covered" >      res["params"] = params["data"];</span>
+    } else {
+      type paramsKey = "method" | "url" | "headers" | "data";
+<span class="cstat-no" title="statement not covered" >      res[item] = params[item as paramsKey];</span>
     }
-    return result[0];
-  }
+  });
+&nbsp;
+<span class="cstat-no" title="statement not covered" >  return res;</span>
 }
 &nbsp;</pre></td></tr>
 </table></pre>
