@@ -1,8 +1,9 @@
 /**
  * @desc 多值选择类
  */
-import _isEqual from 'lodash.isequal';
-export default class Select<T extends Object> {
+import _isEqual from "lodash.isequal";
+
+export default class Select<T extends Record<string, any>> {
   data: T[];
 
   /**
@@ -34,5 +35,20 @@ export default class Select<T extends Object> {
       throw new Error(`the val:${val} does not exit.`);
     }
     return result[0];
+  }
+
+  /**
+   * 返回 pro-table 类型所需的 valueEnum 格式数据
+   */
+  valueEnum() {
+    const valueEnum = {};
+    this.data.forEach(item => {
+      valueEnum[item.id] = {
+        text: item.val,
+        status: item.status,
+      };
+    });
+
+    return valueEnum;
   }
 }
